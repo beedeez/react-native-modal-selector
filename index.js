@@ -36,6 +36,7 @@ const propTypes = {
     optionStyle:                    ViewPropTypes.style,
     optionTextStyle:                Text.propTypes.style,
     optionContainerStyle:           ViewPropTypes.style,
+    scrollViewStyle:                ViewPropTypes.style,
     sectionStyle:                   ViewPropTypes.style,
     childrenContainerStyle:         ViewPropTypes.style,
     touchableStyle:                 ViewPropTypes.style,
@@ -72,7 +73,8 @@ const defaultProps = {
     selectTextStyle:                {},
     optionStyle:                    {},
     optionTextStyle:                {},
-    optionContainerStyle:           {},
+    optionContainerStyle:           { flex: '1 1 auto'},
+    scrollViewStyle: { flex: '1 1 auto'},
     sectionStyle:                   {},
     childrenContainerStyle:         {},
     touchableStyle:                 {},
@@ -189,7 +191,7 @@ export default class ModalSelector extends React.Component {
             }}>
                 <View style={[styles.overlayStyle, this.props.overlayStyle]}>
                     <View style={[styles.optionContainer, this.props.optionContainerStyle]}>
-                        <ScrollView keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps} accessible={this.props.accessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
+                        <ScrollView style={this.props.scrollViewStyle} keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps} accessible={this.props.accessible} accessibilityLabel={this.props.scrollViewAccessibilityLabel}>
                             <View style={{paddingHorizontal: 10}}>
                                 {options}
                             </View>
